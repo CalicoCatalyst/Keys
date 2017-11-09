@@ -1,0 +1,1582 @@
+<html>
+    <head>
+        <style>
+            ::selection{background-color:none; color:inherit;}
+            * {
+            font-family: "Helvetica";
+            }
+            body{
+            background-color:white;
+            background-size: 100%;
+            background-attachment: fixed;
+            }
+            body.ableton{
+            background: #F0E4D4;
+            }
+            .cable {
+    height: 108px;
+    width: 10px;
+    background-color: #000;
+    margin: 0 60%;
+    margin-top: -10px;
+}            div#amsg {
+    bottom: 21px;
+    position: absolute;
+    font-size: 16px;
+}
+
+
+            .keyboard{
+            width:800px; height: 240px;
+            background-color: #adadad;
+            background-size: 100%;
+            margin: 0px auto;
+            border-radius: 5px;
+            padding: 30px;
+            padding-top:60px;
+            color: #eee;
+                box-shadow: inset 1px 2px 6px rgba(255, 255, 255, 0.77), inset -1px -2px 6px rgba(0, 0, 0, 0.4);
+                padding-right: 5px;
+            }
+            .keyboard::before {
+            background-image: url("abletonlogo.png");
+            content: '';
+            display: block;
+            width: 75px;
+            height: 35px;
+            margin-top: -40px;
+            margin-bottom: 17px;
+            background-position: -76px 0px;
+            margin-left: 3px;
+            }
+            .keyboard::after {
+            content: 'Ableton Keyboard Shortcuts';
+            color: #fff;
+            font-family: "futura-pt","Helvetica Neue",Helvetica,Arial,sans-serif;
+            position: absolute;
+            top: 130px;
+            margin-left: 413px;
+            font-size: 29px;
+            white-space: nowrap;
+            }
+            kbd
+            .logo{
+            width:40px; height:40px;
+            background-color:#CCC;
+            color: #222;
+            font-weight:300;
+            font-style: oblique;
+            font-size:30px;
+            line-height:40px;
+            text-align:center;
+            margin: -20px auto 10px auto;
+            border-radius:40px;
+            }
+            .key {
+    width: 35px;
+    height: 40px;
+    display: block;
+    background-color: #e8e8e8;
+    color: #777777;
+    text-align: left;
+    padding-left: 8px;
+    line-height: 29px;
+    border-radius: 2px;
+    float: left;
+    margin-left: 2px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    transition: box-shadow 0.03s linear;
+    box-shadow: inset 1px 1px 1px #d8d8d8;
+}
+            .section-a{width:650px; height:260px; float:left;}
+            .section-b{width:150px; height:260px; float:left;}
+            .function{font-size: 12px; width:30px; height:30px;}
+            .small{font-size:10px; line-height:13px; text-align: center; padding:0 5px; padding-top:2px; height:28px !important;}
+            .space1{margin-right: 43px !important;}
+            .space2{margin-right: 25px !important;}
+            .dual {font-size: 14px; line-height: 20px; width:30px; }
+            .backspace {width:84px; font-size: 12px;}
+            .tab {width: 50px; line-height: 40px; font-size:13px;}
+            .letter{width:30px;}
+            .slash{width:64px;}
+            .caps{width:70px; font-size:12px; line-height:18px;}
+            .enter{width:92px; line-height:40px; text-align: center; padding-left:0;}
+            .shift.left{width: 90px;line-height: 40px; font-size:13px;}
+            .shift.right{width: 104px;line-height: 40px; font-size:13px;}
+            .ctrl{width: 62px; line-height: 40px; font-size:13px;}
+            .space{width:234px;}
+            .arrows{position:relative; top:42px;}
+            .sec-func .key{width: 32px; font-size:10px; text-align:left; line-height:40px; float:left;}
+            .sec-func div.dual{line-height:20px;}
+            .arrows .key{text-align: center; padding-left: 7px; margin-left:2px;}
+            .hidden{visibility: hidden;}
+            .key .table.container {
+            display: none;
+            width: 99%;
+            min-height: 40%;
+            position: absolute;
+            top: 500px;
+            left: 0.5%;
+            padding-top: 40px;
+            }
+            .arrows .table.container table {
+    margin-left: -358px;
+    position: relative;
+    top: -216px;
+}
+            kbd{
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: -3px 0.2em 0 0.2em;
+            padding: 0.1em 0.5em !important;
+            background-color: #e0e0e0;
+            color: #000;
+            font-family: monospace;
+            font-size: 93%;
+            line-height: 1.4;
+            white-space: nowrap;
+            vertical-align: middle;
+            }
+            .key.show {
+    box-shadow: none;
+    background-color: #bbb;
+}
+            .key.show .table.container {
+            display:block;
+            }
+            .key table {
+            margin: 5px auto;
+            color: white;
+            font-weight: bold;
+            background: rgb(72, 72, 72);
+            padding: 5px 50px;
+            border: solid 1px rgb(0, 0, 0);
+            border-radius: 3px;
+            box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.46);
+            }
+            .key.functional {
+    background-color: transparent;
+    pointer-events: none;
+    box-shadow:none;
+}
+            .key table th {
+            font-size: 16px;
+            color: rgb(197, 197, 197);
+            }
+            td:first-of-type {
+            text-align: right;
+            }
+            .key table td:first-of-type:after {
+            content: ' - '
+            }
+            .contributors {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            color: black;
+            font-size: 14px;
+            }
+            .contributors::before {
+            content: 'Contributors: ';
+            }
+            div#captureKeystrokes {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: white;
+            background: #666666;
+            border: solid 1px white;
+            padding: 5px;
+            }
+            div#captureKeystrokes:hover:after {
+            content: 'Prevent Keys from causing the window to lose focus';
+            position: absolute;
+            top: 30px;
+            right: 0px;
+            width: auto;
+            color: black;
+            font-size: 13px;
+            }
+        </style>
+    </head>
+    <body class="ableton">
+        <div class="cable"></div>
+        <div class="keyboard">
+            <div class="section-a">
+                <div id="k27" class="key function space1" onclick="buttonClicked(27)">
+                    Esc
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows mac"><kbd>ESC</kbd></td>
+                                <td>Close Window/Dialog</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Entering Values</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows mac"><kbd>ESC</kbd></td>
+                                <td>Cancel Value Entry</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k112" class="key function" onclick="buttonClicked(112)">
+                    F1
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F1</kbd></td>
+                                <td>Toggle Track 1</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k113" class="key function" onclick="buttonClicked(113)">
+                    F2
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F2</kbd></td>
+                                <td>Toggle Track 2</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k114" class="key function" onclick="buttonClicked(114)">
+                    F3
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F3</kbd></td>
+                                <td>Toggle Track 3</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k115" class="key function space2" onclick="buttonClicked(115)">
+                    F4
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F4</kbd></td>
+                                <td>Toggle Track 4</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k116" class="key function" onclick="buttonClicked(116)">
+                    F5
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F5</kbd></td>
+                                <td>Toggle Track 5</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k117" class="key function" onclick="buttonClicked(117)">
+                    F6
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F6</kbd></td>
+                                <td>Toggle Track 6</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k118" class="key function" onclick="buttonClicked(118)">
+                    F7
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F7</kbd></td>
+                                <td>Toggle Track 7</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k119" class="key function space2" onclick="buttonClicked(119)">
+                    F8
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F8</kbd></td>
+                                <td>Toggle Track 8</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k120" class="key function" onclick="buttonClicked(120)">
+                    F9
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F9</kbd></td>
+                                <td>Record</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k121" class="key function" onclick="buttonClicked(121)">
+                    F10
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F10</kbd></td>
+                                <td>Back to Arrangement</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k122" class="key function" onclick="buttonClicked(122)">
+                    F11
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Grids</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>F11</kbd></td>
+                                <td>Toggle Full Screen Mode</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k123" class="key function" onclick="buttonClicked(123)">
+                    F12
+                    <div class="table container">
+                        <table class="ableton noctrl noalt nofunc">
+                            <th align="center" colspan=2>Grids</th>
+                            <tr class="noctrl noalt nofunc">
+                                <td class="ableton windows"><kbd>SHIFT</kbd> + <kbd>F12</kbd></td>
+                                <td>Hide/Show Detail View</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!--END FUNCTION KEYS -->
+                <div id="k192" class="key num dual" onclick="buttonClicked(192)">
+                    ~<br>`
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <div id="k49" class="key num dual" onclick="buttonClicked(49)">
+                    !<br>1
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Grids</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>1</kbd></td>
+                                <td>Narrow Grid</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k50" class="key num dual" onclick="buttonClicked(50)">
+                    @<br>2
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Grids</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>2</kbd></td>
+                                <td>Widen Grid</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k51" class="key num dual" onclick="buttonClicked(51)">
+                    #<br>3
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Grids</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>3</kbd></td>
+                                <td>Triplet Grid</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k52" class="key num dual" onclick="buttonClicked(52)">
+                    $<br>4
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Grids</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>4</kbd></td>
+                                <td>Snap to Grid</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k53" class="key num dual" onclick="buttonClicked(53)">
+                    %<br>5
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Grids</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>5</kbd></td>
+                                <td>Fixed/Zoom-Adaptive Grid</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k54" class="key num dual" onclick="buttonClicked(54)">
+                    ^<br>6
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Quantization</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>6</kbd></td>
+                                <td>Sixteenth-Note Quantization</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k55" class="key num dual" onclick="buttonClicked(55)">
+                    &<br>7
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Quantization</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>7</kbd></td>
+                                <td>Eighth-Note Quantization</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k56" class="key num dual" onclick="buttonClicked(56)">
+                    *<br>8
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Quantization</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>8</kbd></td>
+                                <td>Quarter-Note Quantization</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k57" class="key num dual" onclick="buttonClicked(57)">
+                    (<br>9
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Quantization</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>9</kbd></td>
+                                <td>1-Bar Quantization</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k48" class="key num dual" onclick="buttonClicked(48)">
+                    )<br>0
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Quantization</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>0</kbd></td>
+                                <td>Disable Quantization</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k189" class="key num dual" onclick="buttonClicked(189)">
+                    _<br>-
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Tracks</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>-</kbd></td>
+                                <td>Hide Grouped Tracks</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Zoom</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>-</kbd></td>
+                                <td>Zoom Out</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>General</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>-</kbd></td>
+                                <td>Fold an object</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k187" class="key num dual" onclick="buttonClicked(187)">
+                    +<br>=
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Tracks</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>+</kbd></td>
+                                <td>Show Grouped Tracks</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Zoom</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>+</kbd></td>
+                                <td>Zoom In</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>General</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>+</kbd></td>
+                                <td>Unfold an object</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k8" class="key backspace" onclick="buttonClicked(8)")>
+                    Backspace
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <!--END NUMBER KEYS -->
+                <div id="k9" class="key tab" onclick="buttonClicked(9)">
+                    Tab
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr class="noctrl noalt nofunc">
+                                <td class="ableton windows"><kbd>Tab</kbd></td>
+                                <td>Toggle Session/Arrangement View</td>
+                            </tr>
+                            <tr class="noctrl noalt nofunc">
+                                <td class="ableton windows"><kbd>SHIFT</kbd> + <kbd>Tab</kbd></td>
+                                <td>Toggle Device/Clip View</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>While Renaming</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Tab</kbd></td>
+                                <td>Go to next track</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k81" class="key letter" onclick="buttonClicked(81)">
+                    Q
+                    <div id="qcontainer" class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Global</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>Q</kbd></td>
+                                <td>Quit Live</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Q</kbd></td>
+                                <td>Toggle Hot Swap Mode</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k87" class="key letter" onclick="buttonClicked(87)">
+                    W
+                    <div class="table container">
+                        <table class="ableton noalt ctrlshift nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr class="noalt ctrlshift">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd></td>
+                                <td>Toggle Second Window</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k69" class="key letter" onclick="buttonClicked(69)">
+                    E
+                    <div class="table container">
+                        <table class="ableton noalt noshift nofunc">
+                            <th align="center" colspan=2>In Session View</th>
+                            <tr class="noalt noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>E</kbd></td>
+                                <td>Add/Remove Stop Button</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt noshift nofunc">
+                            <th align="center" colspan=2>In Arrangement View</th>
+                            <tr class="noalt noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>E</kbd></td>
+                                <td>Split Clip at Section</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt noshift nofunc">
+                            <th align="center" colspan=2>Working with the Program</th>
+                            <tr class="noalt noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>E</kbd></td>
+                                <td>Export Midi File</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k82" class="key letter" onclick="buttonClicked(82)">
+                    R
+                    <div class="table container">
+                        <table class="ableton noalt noshift nofunc">
+                            <th align="center" colspan=2>Editing</th>
+                            <tr class="noalt noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>R</kbd></td>
+                                <td>Rename</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Working with the Program</th>
+                            <tr class="noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>R</kbd></td>
+                                <td>Export Audio/Video</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k84" class="key letter" onclick="buttonClicked(84)">
+                    T
+                    <div class="ableton table container">
+                        <table class="nofunc">
+                            <th align="center" colspan=2>Tracks</th>
+                            <tr class="noalt noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>T</kbd></td>
+                                <td>Insert Audio Track</td>
+                            </tr>
+                            <tr class="noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>T</kbd></td>
+                                <td>Insert MIDI Track</td>
+                            </tr>
+                            <tr class="noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>T</kbd></td>
+                                <td>Insert Return Track</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k89" class="key letter" onclick="buttonClicked(89)">
+                    Y
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Editing</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>Y</kbd></td>
+                                <td>Redo</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k85" class="key letter" onclick="buttonClicked(85)">
+                    U
+                    <div class="table container">
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Clip View</th>
+                            <tr class="noalt noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>U</kbd></td>
+                                <td>Quantize</td>
+                            </tr>
+                            <tr class="noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>U</kbd></td>
+                                <td>Quantize Settings...</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k73" class="key letter" onclick="buttonClicked(73)">
+                    I
+                    <div class="table container">
+                        <table class="ableton noshift nofunc">
+                            <th align="center" colspan=2>View</th>
+                            <tr class="noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>I</kbd></td>
+                                <td>Show/Hide In/Out</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Session View</th>
+                            <tr class="noalt noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + I</td>
+                                <td>Insert Scene</td>
+                            </tr>
+                            <tr class="noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>I</kbd></td>
+                                <td>Insert Captured Scene</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k79" class="key letter" onclick="buttonClicked(79)">
+                    O
+                    <div class="table container">
+                        <table class="ableton noshift nofunc">
+                            <th align="center" colspan=2>Global</th>
+                            <tr class="noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>O</kbd></td>
+                                <td>Hide/Show Overview</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Working with the program</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>O</kbd></td>
+                                <td>Open Live Set</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k80" class="key letter" onclick="buttonClicked(80)">
+                    P
+                    <div class="table container">
+                        <table class="ableton noshift nofunc">
+                            <th align="center" colspan=2>Plugins</th>
+                            <tr class="noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>P</kbd></td>
+                                <td>Show/Hide Plugin Windows</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k219" class="key dual" onclick="buttonClicked(219)">
+                    {<Br>[
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <div id="k221" class="key dual" onclick="buttonClicked(221)">
+                    }<br>]
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <div id="k220" class="key letter dual slash" onclick="buttonClicked(220)">
+                    |<br>\
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <div id="k20" class="key caps" onclick="buttonClicked(20)">
+                    Caps<br>Lock
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc noctrl">
+                            <th align="center" colspan=2>gLOBAL</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>cAPS lOCK</kbd></td>
+                                <td>MAKES EVERYTHING YOU TYPE CAPITAL</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k65" class="key letter" onclick="buttonClicked(65)">
+                    A
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Global</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>A</kbd></td>
+                                <td>Select All</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k83" class="key letter" onclick="buttonClicked(83)">
+                    S
+                    <div class="table container">
+                        <table class="ableton noshift nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr class="noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>S</kbd></td>
+                                <td>Hide/Show Sends</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Working with the Program</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>S</kbd></td>
+                                <td>Save Live Set</td>
+                            </tr>
+                            <tr class="noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>S</kbd></td>
+                                <td>Save Live Set As</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k68" class="key letter" onclick="buttonClicked(68)">
+                    D
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Editing</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>D</kbd></td>
+                                <td>Duplicate</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Toggle Drum Rack/Last Selected Pad</th>
+                            <tr class="noshift noalt noctrl nofunc">
+                                <td class="ableton windows"><kbd>D</kbd></td>
+                                <td>Toggle Hot Swap Mode</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k70" class="key letter" onclick="buttonClicked(70)">
+                    F
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Browsing</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>F</kbd></td>
+                                <td>Search in Browser</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift nofunc">
+                            <th align="center" colspan=2>Arrangement View</th>
+                            <tr class="noshift nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd></td>
+                                <td>Create Fade/Crossfade</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Arrangement View<br>Zooming/Display</th>
+                            <tr class="noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>F</kbd></td>
+                                <td>Scroll Display to Follow Playback</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k71" class="key letter" onclick="buttonClicked(71)">
+                    G
+                    <div class="table container">
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Working with Tracks</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>G</kbd></td>
+                                <td>Group Tracks</td>
+                            </tr>
+                            <tr class="noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>G</kbd></td>
+                                <td>Ungroup Tracks</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Plugins and Devices</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>G</kbd></td>
+                                <td>Group/Ungroup Devices</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k72" class="key letter" onclick="buttonClicked(72)">
+                    H
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <div id="k74" class="key letter" onclick="buttonClicked(74)">
+                    J
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Arrangement View</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>J</kbd></td>
+                                <td>Consolidate Selection Into Clip</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k75" class="key letter" onclick="buttonClicked(75)">
+                    K
+                    <div class="table container">
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>MIDI</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>K</kbd></td>
+                                <td>Toggle Key Map Mode</td>
+                            </tr>
+                            <tr class="noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>K</kbd></td>
+                                <td>Toggle Computer Midi Keyboard</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k76" class="key letter" onclick="buttonClicked(76)">
+                    L
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Arrangement View</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>L</kbd></td>
+                                <td>Loop Selection</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>L</kbd></td>
+                                <td>Show/Hide Detail View</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Loop Brace & Start/End markers</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>L</kbd></td>
+                                <td>Select Material in Loop</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k186" class="key dual" onclick="buttonClicked(186)">
+                    :<br>;
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <div id="k222" class="key dual" onclick="buttonClicked(222)">
+                    "<br>'
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <div id="k13" class="key enter" onclick="buttonClicked(13)">
+                    Enter
+                    <div class="table container">
+                        <table class="ableton noctrl  noalt nofunc">
+                            <th align="center" colspan=2>Browsing</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Enter</kbd></td>
+                                <td>Load Selected Item</td>
+                            </tr>
+                            <tr class="noctrl noalt nofunc">
+                                <td class="ableton windows"><kbd>SHIFT</kbd> + <kbd>Enter</kbd></td>
+                                <td>Preview Selected File</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noctrl noalt nofunc">
+                            <th align="center" colspan=2>Browsing</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Enter</kbd></td>
+                                <td>Launch Selected Clip/Slot</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="shiftleft" class="key shift left" onclick="buttonClicked(16)">
+                    Shift
+                </div>
+                <div id="k90" class="key letter" onclick="buttonClicked(90)">
+                    Z
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Editing</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>Z</kbd></td>
+                                <td>Undo</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Midi Computer Keyboard</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>Z</kbd></td>
+                                <td>Lower Keyboard an Octave</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k88" class="key letter" onclick="buttonClicked(88)">
+                    X
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Editing</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>X</kbd></td>
+                                <td>Cut</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Midi Computer Keyboard</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>X</kbd></td>
+                                <td>Raise Keyboard an Octave</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k67" class="key letter" onclick="buttonClicked(67)">
+                    C
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Editing</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>C</kbd></td>
+                                <td>Copy</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k86" class="key letter" onclick="buttonClicked(86)">
+                    V
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Editing</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>V</kbd></td>
+                                <td>Paste</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k66" class="key letter" onclick="buttonClicked(66)">
+                    B
+                    <div class="table container">
+                        <table class="ableton noshift nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>B</kbd></td>
+                                <td>Hide/Show Browser</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Drawing</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>B</kbd></td>
+                                <td>Toggle Draw Mode</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k78" class="key letter" onclick="buttonClicked(78)">
+                    N
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Working With the Program</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>N</kbd></td>
+                                <td>New Live Set</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k77" class="key letter" onclick="buttonClicked(77)">
+                    M
+                    <div class="table container">
+                        <table class="ableton noshift nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>M</kbd></td>
+                                <td>Hide/Show Mixer</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noalt nofunc">
+                            <th align="center" colspan=2>Session View</th>
+                            <tr>
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd></td>
+                                <td>Insert Midi Clip</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k188" class="key dual" onclick="buttonClicked(188)">
+                    < <br>,
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Setting Values</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>,</kbd></td>
+                                <td>Go to Next Field</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Setting Values</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>,</kbd></td>
+                                <td>Open Preferences</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k190" class="key dual" onclick="buttonClicked(190)">
+                    ><br>.
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Setting Values</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>.</kbd></td>
+                                <td>Go to Next Field</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k191" class="key dual" onclick="buttonClicked(191)">
+                    ?<br>/
+                    <div class="table container">
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Views</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Shift</kbd> + <kbd>?</kbd></td>
+                                <td>Hide/Show Info View</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="shiftright" class="key shift right" onclick="buttonClicked(16)">
+                    Shift
+                </div>
+                <div id="ctrlleft" class="key ctrl" onclick="buttonClicked(17)">
+                    Ctrl
+                </div>
+                <div id="functionleft" class="key" onclick="">
+                    Fn
+                </div>
+                <div id="insx" class="key">
+                    <3
+                </div>
+                <div id="altleft" class="key" onclick="buttonClicked(18)">
+                    Alt
+                </div>
+                <div id="space" class="key space" >
+                </div>
+                <div id="altright" class="key" onclick="buttonClicked(18)">
+                    Alt
+                </div>
+                <div id="functionright" class="key">
+                    Fn
+                </div>
+                <div id="ctrlright" class="key ctrl" onclick="buttonClicked(17)">
+                    Ctrl
+                </div>
+            </div>
+            <!-- end section-a-->
+            <div class="section-b">
+                <div id="printscreen" class="key function small">
+                    Prnt Scrn
+                </div>
+                <div id="scroll" class="key function small">
+                    Scroll Lock
+                </div>
+                <div id="pausebreak" class="key function small">
+                    Pause Break
+                </div>
+                <dic id="insert" class="sec-func">
+                <div id="k45" class="key" onclick="buttonClicked(45)">
+                    Insert
+                    <div class="table container">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+                </div>
+                <div id="k36" class="key" onclick="buttonClicked(36)">
+                    Home
+                <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Transport</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Home</kbd></td>
+                                <td>Move Insert Marker to Beginning</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Clip View Midi Editor</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Home</kbd></td>
+                                <td>Move Insert Marker to Beginning</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k33" class="key dual" onclick="buttonClicked(33)">
+                    Page Up
+                <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Clip View Midi Editor</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Page Up</kbd></td>
+                                <td>Scroll Editor Up</td>
+                            </tr>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>Page Up</kbd></td>
+                                <td>Scroll Editor Right</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k46" class="key" onclick="buttonClicked(46)">
+                    Del
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Setting Values</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Del</kbd></td>
+                                <td>Return to Default Value</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Editing</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Del</kbd></td>
+                                <td>Delete</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k35" class="key" onclick="buttonClicked(35)">
+                    End
+                <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Clip View Midi Editor</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>End</kbd></td>
+                                <td>Move Insert Marker to End</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="k34" class="key dual" onclick="buttonClicked(34)">
+                    Page Down
+                <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Clip View Midi Editor</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>Page Down</kbd></td>
+                                <td>Scroll Editor Down</td>
+                            </tr>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>Page Down</kbd></td>
+                                <td>Scroll Editor Left</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                    <div id='asdf' class="key hidden" style="margin-top:40px">
+                    </div>
+                    <div id="k38" class="key" onclick="buttonClicked(38)" style="margin-top:40px">
+                        ^
+                <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Values</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>^</kbd></td>
+                                <td>Increment Value</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Browsing</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>^</kbd></td>
+                                <td>Scroll Up</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Loop & Start/End Markers</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>^</kbd></td>
+                                <td>Move Loop by Loop Length</td>
+                            </tr>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>^</kbd></td>
+                                <td>Double Loop Length</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Session View / Tracks</th>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>^</kbd></td>
+                                <td>Move Nonadjacent Scenes/Tracks</td>
+                            </tr>
+                        </table>
+                        </div>
+
+                    </div>
+                    <div class="key hidden" style="margin-top:40px">
+                    </div>
+                    <div id="k37" class="key" onclick="buttonClicked(37)">
+                        <
+                        <div class="table container">
+                            <table class="ableton noshift noalt nofunc">
+                                <th align="center" colspan=2>Browsing</th>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd><</kbd></td>
+                                    <td>Close Folder</td>
+                                </tr>
+                            </table>
+                            <table class="ableton noshift noalt nofunc">
+                                <th align="center" colspan=2>Loops & Start/End Markers</th>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd><</kbd></td>
+                                    <td>Nudge Loop Left</td>
+                                </tr>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd>CTRL</kbd> <kbd><</kbd></td>
+                                    <td>Shorten Loop</td>
+                                </tr>
+                            </table>
+                            <table class="ableton noshift noalt nofunc">
+                                <th align="center" colspan=2>Clip View Sample Display</th>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd><</kbd></td>
+                                    <td>Move Selected Warp Marker</td>
+                                </tr>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd>CTRL</kbd> + <kbd><</kbd></td>
+                                    <td>Move Clip Region with Start Marker</td>
+                                </tr>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd>SHIFT</kbd> + <kbd><</kbd></td>
+                                    <td>Select Warp Marker</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="k40" class="key" onclick="buttonClicked(40)">
+                        v
+                    <div class="table container">
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Values</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>v</kbd></td>
+                                <td>Decrement Value</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noctrl noshift noalt nofunc">
+                            <th align="center" colspan=2>Browsing</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>v</kbd></td>
+                                <td>Scroll Down</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Searching</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>v</kbd></td>
+                                <td>Jump to Search Results</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Loop & Start/End Markers</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>v</kbd></td>
+                                <td>Move Loop by Loop Length</td>
+                            </tr>
+                            <tr class="noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>v</kbd></td>
+                                <td>Halve Loop Length</td>
+                            </tr>
+                        </table>
+                        <table class="ableton noshift noalt nofunc">
+                            <th align="center" colspan=2>Session View / Tracks</th>
+                            <tr class="noctrl noshift noalt nofunc">
+                                <td class="ableton windows"><kbd>CTRL</kbd> + <kbd>v</kbd></td>
+                                <td>Move Nonadjacent Scenes/Tracks</td>
+                            </tr>
+                        </table>
+                        </div>
+
+                    </div>
+                    <div id="k39" class="key" onclick="buttonClicked(39)">
+                        >
+                        <div class="table container">
+                            <table class="ableton noctrl noshift noalt nofunc">
+                                <th align="center" colspan=2>Browsing</th>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd>></kbd></td>
+                                    <td>Open Folder</td>
+                                </tr>
+                            </table>
+                            <table class="ableton noshift noalt nofunc">
+                                <th align="center" colspan=2>Loops & Start/End Markers</th>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd>></kbd></td>
+                                    <td>Nudge Loop Right</td>
+                                </tr>
+                                <tr class="noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd>CTRL</kbd> <kbd>></kbd></td>
+                                    <td>Length Loop</td>
+                                </tr>
+                            </table>
+                            <table class="ableton noshift noalt nofunc">
+                                <th align="center" colspan=2>Clip View Sample Display</th>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd><</kbd></td>
+                                    <td>Move Selected Warp Marker</td>
+                                </tr>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd>CTRL</kbd> + <kbd><</kbd></td>
+                                    <td>Move Clip Region with Start Marker</td>
+                                </tr>
+                                <tr class="noctrl noshift noalt nofunc">
+                                    <td class="ableton windows"><kbd>SHIFT</kbd> + <kbd><</kbd></td>
+                                    <td>Select Warp Marker</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+            <div id="k5000" class="functional description key show">
+                <div class="table container">
+                    <table class="ableton noctrl noshift noalt nofunc info">
+                        <th align="center" colspan=2>Welcome to the Ableton Keyboard Guide</th>
+                        <tr class="noctrl noshift noalt nofunc info">
+                            <td>Press any key, on screen or on your keyboard, to view it's shortcut</td>
+                        </tr>
+                    </table>
+                    <table class="ableton noctrl noshift nofunc notinfo" style="display:none;">
+                        <th align="center" colspan=2>Accessing Menus</th>
+                        <tr class="noshift noctrl nofunc notinfo">
+                            <td class="ableton windows"><kbd>Alt</kbd></td>
+                            <td>Access File Menus</td>
+                        </tr>
+                    </table>
+                    <table class="ableton noctrl noshift nofunc notinfo" style="display:none;">
+                        <th align="center" colspan=2>Editing</th>
+                        <tr class="noshift noctrl nofunc notinfo">
+                            <td class="ableton windows"><kbd>Alt</kbd></td>
+                            <td>Apply Effect to the selected part of the evelope</td>
+                        </tr>
+                    </table>
+                    <table class="ableton noshift noalt nofunc notinfo" style="display:none;">
+                        <th align="center" colspan=2>Adjusting Values</th>
+                        <tr class="noalt noshift nofunc notinfo">
+                            <td class="ableton windows"><kbd>CTRL</kbd></td>
+                            <td>Access File Menus</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="functional description key show">
+                    <div class="table container" style="z-index:-1000">
+                        <table class="ableton">
+                            <th style="color:white;">None</th>
+                        </table>
+                    </div>
+            </div>
+                <!-- end arrows -->
+            </div>
+            <!-- end sec-func -->
+
+        </div>
+        <!-- end section-b-->
+
+        <div></div>
+        <div id="captureKeystrokes" class="captureKeystrokes" onclick="toggleKeystrokeCapture()">Capture Keystrokes</div>
+        <script src="a9macscripts.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109451859-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109451859-1');
+</script>
+        <div id="amsg" style="display: none">
+             Hey, I've noticed you're using adblock. I don't show adverts on here, but it blocks google analytics, which is how I get statistics on browsers and OS's.
+             <br> This helps me further tailor the website to exactly who is using it. <br> It's not super important, so you're fine blocking this message as well.
+        </div>
+
+
+        <script type="text/javascript" src="./blockadblock.js"></script>
+        <script type="text/javascript">if (blockAdBlock.check(false) || typeof blockAdBlock === 'undefined') {
+             remAddedCSS("amsg");
+        }</script>
+
+
+    </body>
+<footer>
+                <table id="bottombar">
+        <tr>
+        <style>
+        table#bottombar {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    background-color: white;
+    border: solid 1px rgba(0, 0, 0, 0.31);
+    left: 0;
+    border-bottom: none;
+}
+#bottombar td:last-of-type {
+    width: 100%;
+}
+
+#bottombar td {
+    text-align: left;
+    font-size: 12px;
+    width: 1%;
+    border-right: solid 1px rgba(0, 0, 0, 0.35);
+    white-space: nowrap;
+    padding: 0px 20px 0px 1px;
+}
+        #shortcutsfor:before {
+            content:'Shortcuts For: '
+        }
+        #language:before{
+            content:'Language: '
+        }
+
+        #opsys:before{
+            content:'System: '
+        }
+        #keycapmode:before{
+            content: 'Force Keyboard Capture: '
+        }
+
+        #contributors:before{
+            content:'Contributors: '
+        }
+        #author:before{
+            content:'Author: '
+        }
+
+        </style>
+        <td id="shortcutsfor">Ableton 9</td>
+        <td id="language">English</td>
+        <td id="opsys">Windows</td>
+        <td id="keycapmode">Yes</td>
+        <td id="contributors">Insxnity</td>
+        <td id="author">Insxnity</td>
+
+        </tr>
+        </table>
+</footer>
+</html>
